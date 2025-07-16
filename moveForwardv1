@@ -1,0 +1,12 @@
+local movePart = script.Parent
+
+
+local distancePerStep = 0.5
+
+while true do
+
+	movePart.CFrame = movePart.CFrame * CFrame.new(0, 0, -distancePerStep)
+
+
+	task.wait() 
+end
