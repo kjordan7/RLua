@@ -23,5 +23,5 @@ RunService.Heartbeat:Connect(function()
 	-- Set the part's new position. We only change the Y-axis.
 	part.Position = initialPosition + Vector3.new(0, verticalOffset, 0)
 end)
-<attach type="Script" to="Instance_0_1574940"/>
+
 
