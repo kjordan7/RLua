@@ -1,0 +1,15 @@
+local Part = game.Workspace.Platform -- Change this to your part
+local TweenService = game:GetService("TweenService") 
+local Pos = Vector3.new(-220,0,0) -- Change this to the position you want part to move to
+
+local Moving_Info = TweenInfo.new(
+	5, --the amount of seconds you want it to take
+	Enum.EasingStyle.Back,
+	Enum.EasingDirection.In,
+	999, --The amount of time you want it to repeat
+	true, --Whether you want it to reverse back to the original position when it's done
+	0.5 -- how much time should delay between each repitition
+)
+
+TweenService:Create(Part, Moving_Info, {Position = Pos}):Play()
+
