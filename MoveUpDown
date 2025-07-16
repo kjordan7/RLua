@@ -1,0 +1,27 @@
+-- This script makes the part it's attached to move up and down smoothly.
+
+local part = script.Parent
+
+-- You can change these values to adjust the movement
+local amplitude = 10 -- How many studs the part moves up and down from its center
+local speed = 1      -- How fast the part oscillates
+
+-- Store the original position to calculate the movement around it
+local initialPosition = part.Position
+
+-- Use the RunService for smooth, frame-by-frame updates
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+	-- Calculate the new vertical position using a sine wave.
+	-- os.clock() gives us a continuously running time value.
+	local sine = math.sin(os.clock() * speed)
+	
+	-- Apply the amplitude to the sine wave to control the height
+	local verticalOffset = sine * amplitude
+	
+	-- Set the part's new position. We only change the Y-axis.
+	part.Position = initialPosition + Vector3.new(0, verticalOffset, 0)
+end)
+<attach type="Script" to="Instance_0_1574940"/>
+
