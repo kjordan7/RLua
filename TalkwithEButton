@@ -1,0 +1,18 @@
+local ChatService = game:GetService("Chat")
+local UserInputService = game:GetService("UserInputService")
+local myText = "Hi there!"
+
+local function onInputBegan(input, gameProcessedEvent)
+	-- We check gameProcessedEvent to see if the input was already captured by the game,
+	-- for example, when typing in the chat. We should ignore such inputs.
+	if gameProcessedEvent then
+		return
+	end
+
+	if input.KeyCode == Enum.KeyCode.E then --if the E button is pressed
+		print("The E key was pressed!")
+		ChatService:Chat(workspace.myPart, myText, Enum.ChatColor.White) -- then say the text with the interactible (replace workspace.myPart with your NPC/object)
+	end
+end
+
+UserInputService.InputBegan:Connect(onInputBegan)
